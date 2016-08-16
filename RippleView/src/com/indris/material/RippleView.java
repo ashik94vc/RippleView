@@ -243,7 +243,9 @@ public class RippleView extends Button {
         mPath.addCircle(mDownX, mDownY, mRadius, Path.Direction.CW);
 
         canvas.clipPath(mPath);
-        canvas.restore();
+
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+          canvas.restore();
 
         canvas.drawCircle(mDownX, mDownY, mRadius, mPaint);
     }
